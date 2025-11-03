@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glibrary — My Personal Game Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="./">
+                <span class="brand-accent">G</span>library
+            </a>
+            <nav class="site-nav">
+                <a href="./" class="nav-link active">Home</a>
+                <a href="add.html" class="nav-link">Add Game</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+        </div>
+        <p class="tagline">My Personal Game Collection</p>
+    </header>
+
+    <main class="container">
+        <section class="controls" aria-label="Search and Filters">
+            <div class="search-wrap">
+                <input id="searchInput" type="search" placeholder="Search games..." aria-label="Search games" />
+            </div>
+            <div class="filters">
+                <label>
+                    <span>Genre</span>
+                    <select id="genreFilter">
+                        <option value="">All</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Status</span>
+                    <select id="statusFilter">
+                        <option value="">All</option>
+                        <option>Completed</option>
+                        <option>Playing</option>
+                        <option>Wishlist</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Platform</span>
+                    <select id="platformFilter">
+                        <option value="">All</option>
+                    </select>
+                </label>
+            </div>
+            <div class="import-actions">
+                <button id="openSteamImport" class="btn btn-primary" type="button">Import from Steam</button>
+            </div>
+        </section>
+
+        <section>
+            <div id="gameGrid" class="game-grid" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <div id="steamModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="steamModalTitle">
+        <div class="modal-card card">
+            <div class="modal-header">
+                <h2 id="steamModalTitle">Import from Steam</h2>
+                <button id="closeSteamModal" class="btn" aria-label="Close">✕</button>
+            </div>
+            <div class="modal-body">
+                <p class="muted">Requires a Steam Web API key and your 64-bit SteamID. These are stored only in your browser.</p>
+                <form id="steamForm" class="form-grid">
+                    <label class="form-field">
+                        <span>Steam API Key</span>
+                        <input type="text" id="steamApiKey" placeholder="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+                    </label>
+                    <label class="form-field">
+                        <span>SteamID64</span>
+                        <input type="text" id="steamId64" placeholder="7656119XXXXXXXXXX" />
+                    </label>
+                    <label class="form-field full">
+                        <span class="muted">Tips</span>
+                        <div class="tips">
+                            <div>• Get a key at <a href="https://steamcommunity.com/dev/apikey" target="_blank" rel="noopener">steamcommunity.com/dev/apikey</a></div>
+                            <div>• Find your SteamID64 at <a href="https://steamid.io/lookup" target="_blank" rel="noopener">steamid.io/lookup</a></div>
+                        </div>
+                    </label>
+                </form>
+                <div id="steamError" class="error-text hidden"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveSteamCfg" class="btn">Save</button>
+                <button id="runSteamImport" class="btn btn-primary">Fetch & Import</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span>© <span id="year"></span> Glibrary</span>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+

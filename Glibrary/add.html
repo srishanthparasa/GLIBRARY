@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Game — Glibrary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="./">
+                <span class="brand-accent">G</span>library
+            </a>
+            <nav class="site-nav">
+                <a href="./" class="nav-link">Home</a>
+                <a href="add.html" class="nav-link active">Add Game</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+        </div>
+        <p class="tagline">Add a new game to your collection</p>
+    </header>
+
+    <main class="container">
+        <form id="addGameForm" class="card form-card" autocomplete="off">
+            <div class="form-grid">
+                <label class="form-field">
+                    <span>Title</span>
+                    <input type="text" id="title" required placeholder="E.g., Elden Ring" />
+                </label>
+                <label class="form-field">
+                    <span>Genre</span>
+                    <input type="text" id="genre" required placeholder="E.g., RPG, Action" />
+                </label>
+                <label class="form-field">
+                    <span>Status</span>
+                    <select id="status" required>
+                        <option value="Playing">Playing</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Wishlist">Wishlist</option>
+                    </select>
+                </label>
+                <label class="form-field">
+                    <span>Platform</span>
+                    <input type="text" id="platform" required placeholder="E.g., Steam" />
+                </label>
+                <label class="form-field">
+                    <span>Rating (0-10)</span>
+                    <input type="number" id="rating" min="0" max="10" step="0.1" placeholder="Optional" />
+                </label>
+                <label class="form-field full">
+                    <span>Note</span>
+                    <textarea id="note" rows="3" placeholder="Optional personal note..."></textarea>
+                </label>
+                <label class="form-field full">
+                    <span>Image URL</span>
+                    <input type="url" id="image" placeholder="https://... (optional, recommended)" />
+                </label>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save Game</button>
+                <a href="./" class="btn btn-ghost">Cancel</a>
+            </div>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span>© <span id="year"></span> Glibrary</span>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+<html>
+
+

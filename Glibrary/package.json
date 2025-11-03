@@ -1,0 +1,16 @@
+{
+  "name": "glibrary",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal game library with optional Steam import",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
+  }
+}
+
+
